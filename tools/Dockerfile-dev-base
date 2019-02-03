@@ -1,0 +1,32 @@
+FROM ubuntu:18.10
+
+ENV HOME /root
+
+WORKDIR $HOME
+
+RUN apt update
+RUN apt install -y wget
+RUN apt install -y git
+RUN apt install -y g++
+RUN apt install -y make
+RUN apt install -y ccache
+RUN apt install -y libz-dev
+RUN apt install -y libncurses-dev
+RUN apt install -y libcurl4-openssl-dev
+RUN apt install -y re2c
+RUN apt install -y cmake
+RUN apt install -y gnupg
+
+# Install Clang-7
+
+RUN apt install -y clang-7 lldb-7 clang-format-7 clang-tidy-7 python-lldb-7
+
+# Install Conan
+RUN apt install -y python-pip
+RUN pip install conan
+RUN conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+
+RUN apt install -y mc
+RUN ldconfig
+
+RUN apt install -y ragel
