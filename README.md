@@ -12,7 +12,7 @@ C++14 Standard is used.
 
 WebKit [style](https://webkit.org/code-style-guidelines/) is used.
 
-See `tools/Dockerfile-dev-base` for details how to setup development environment
+See `tools/Dockerfile` for details how to setup development environment
 
 ## Setup
 
@@ -108,31 +108,11 @@ xdg-open lcov/html/selected_targets/index.html
 
 ## Integration
 
-`Dockerfile-initial` creates build environment from the scratch. It should be built manually and pushed to DockerHub
-
-`Dockerfile-travis` is used by Travis. It's based on pre-built image from `Dockerfile-initial` on DockerHub
-
 ### Create docker image
 
-**Dockerfile-dev-base**: base image, which contains basic environment setup (compiler, build tools)
+**Dockerfile**: image, which contains basic environment setup (compiler, build tools)
 
-`docker build -t cpp-dev-base -f tools/Dockerfile-dev-base .`
-
-**Dockerfile-initial**: initial project image, which contains pre-build sources. Based on **Dockerfile-dev-base**
-
-`docker build -t travis-build-cpputils -f tools/Dockerfile-initial .`
-
-Steps to prepare image for Travis
-
-```bash
-docker build -t cpp-dev-base -f tools/Dockerfile-dev-base .
-docker tag cpp-dev-base $DOCKER_ID_USER/cpp-dev-base
-docker build -t travis-build-flat-async -f tools/Dockerfile-initial .
-docker tag travis-build-flat-async $DOCKER_ID_USER/travis-build-flat-async
-docker login
-docker push $DOCKER_ID_USER/cpp-dev-base
-docker push $DOCKER_ID_USER/travis-build-flat-async
-```
+`docker build -t phone-highlight -f tools/Dockerfile .`
 
 ### Clang static analyzer
 
