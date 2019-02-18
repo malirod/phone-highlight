@@ -1,5 +1,7 @@
 # Phone highlight
 
+[![Build Status](https://travis-ci.com/malirod/phone-highlight.svg?branch=master)](https://travis-ci.com/malirod/phone-highlight)
+
 For given phone and search pattern returns structures of indexes which should be highlighted. Allows to calculate highlights for visualization of search as it's done by phone. Some special characters are ignored during calculation (e.g. "(", ")", " " and some other)
 
 E.g. for number "(123) 55 35" and search string "35" result will be "3-3;6-6;9-10". For more cases see unit tests.
