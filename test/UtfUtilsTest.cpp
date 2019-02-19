@@ -48,7 +48,7 @@ TEST_CASE("UTF8ToUtf32", "[UtfToUtf]")
         REQUIRE(utf8Str.length() == 2u);
         REQUIRE(utf8Str == "\u00A0");
         auto const utf32Str = rms::UTF8ToUTF32(utf8Str);
-        auto const utf32StrDesired = U" ";
+        std::u32string const utf32StrDesired = U" ";
         REQUIRE(utf32StrDesired == U"\u00A0");
         REQUIRE(utf32Str.length() == 1u);
         REQUIRE(utf32Str == utf32StrDesired);
