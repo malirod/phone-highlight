@@ -1,0 +1,6 @@
+[submodule "tools/check-webkit-style"]
+	path = tools/check-webkit-style
+	url = https://github.com/malirod/check-webkit-style.git
+[submodule "tools/cmake/cmake-common-utils"]
+	path = tools/cmake/cmake-common-utils
+	url = https://github.com/malirod/cmake-common-utils.git

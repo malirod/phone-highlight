@@ -1,8 +1,7 @@
-// Copyright [2019] <Malinovsky Rodion>
+// Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
+#include "PhoneHighlight.h"
 
 #include <catch2/catch.hpp>
-
-#include "PhoneHighlight.h"
 
 TEST_CASE("RangesConverter", "[highlight]")
 {

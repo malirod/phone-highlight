@@ -1,8 +1,7 @@
-// Copyright [2019] <Malinovsky Rodion>
+// Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
+#include "UtfUtils.h"
 
 #include <catch2/catch.hpp>
-
-#include "UtfUtils.h"
 
 /**
  * Usefull links:

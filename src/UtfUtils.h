@@ -1,4 +1,4 @@
-// Copyright [2019] <Malinovsky Rodion>
+// Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 
 #include <string>
 

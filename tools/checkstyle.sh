@@ -110,6 +110,24 @@ fi
 echo -e "$TEXT_INFO" "PASSED" "$TEXT_DEFAULT"
 
 ##################################################################
+### Auto-check cpp code with style checker
+##################################################################
+
+echo -e "$TEXT_INFO" "Checking cpp code with style checker" "$TEXT_DEFAULT"
+
+
+if [ -n "$CPP_FILES" ]; then
+    tools/check-webkit-style/check-webkit-style $CPP_FILES
+
+    if [ "$?" -ne "0" ]; then
+        echo -e "$TEXT_ERROR" "Cpp style checker reports about issues in cpp files" "$TEXT_DEFAULT"
+        exit 3
+    fi
+fi
+
+echo -e "$TEXT_INFO" "PASSED" "$TEXT_DEFAULT"
+
+##################################################################
 ### Auto-check cpp code with cppcheck
 ##################################################################
 
@@ -120,7 +138,7 @@ if [ -n "$CPP_FILES" ]; then
 
     if [ "$?" -ne "0" ]; then
         echo -e "$TEXT_ERROR" "Cppcheck reports about issues in cpp files" "$TEXT_DEFAULT"
-        exit 3
+        exit 4
     fi
 fi
 
