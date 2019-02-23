@@ -18,6 +18,8 @@ See `tools/Dockerfile` for details how to setup development environment
 
 ## Setup
 
+Submodules are used. Initial command after clone is `git submodule update --init --recursive`.
+
 Assuming all further commands are executed from project root.
 
 ### Setup git hook

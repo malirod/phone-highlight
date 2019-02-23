@@ -1,5 +1,4 @@
-// Copyright [2019] <Malinovsky Rodion>
-
+// Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 #include "PhoneHighlight.h"
 
 #include "UtfUtils.h"
@@ -30,9 +29,8 @@ std::string rms::GetPhoneHighlight(std::string const& phoneNumber, std::string c
         return ignoredChars.find_first_of(charToCheck) == std::u32string::npos;
     };
 
-    if (phoneNumber.empty() || searchString.empty()) {
+    if (phoneNumber.empty() || searchString.empty())
         return "";
-    }
 
     auto const phoneNumberUtf32 = UTF8ToUTF32(phoneNumber);
     auto const searchStringUtf32 = UTF8ToUTF32(searchString);

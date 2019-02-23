@@ -1,4 +1,4 @@
-// Copyright [2019] <Malinovsky Rodion>
+// Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 
 #include <string>
 #include <vector>
@@ -12,7 +12,7 @@ using HighlightRanges = std::vector<std::pair<uint32_t, uint32_t>>;
  * @param highlightRanges Collection of ranges. Range follows next logic: [begin, end]. Indexes are zero based.
  * @return std::string String in the following format: "begin1-end1;begin2-end2...".
  */
-std::string HighlightRangesToString(HighlightRanges const& highlightRanges);
+std::string HighlightRangesToString(HighlightRanges const&);
 
 /**
  * @brief Get the Phone Highlight object. Indexes are zero based. Range is [begin, end] where begin and end are first
