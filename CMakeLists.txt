@@ -16,6 +16,7 @@ include(SetupConan)
 find_package(boost_range REQUIRED)
 find_package(boost_algorithm REQUIRED)
 find_package(boost_locale REQUIRED)
+find_package(icu REQUIRED)
 
 include(CTest)
 
@@ -35,7 +36,9 @@ set(SRC_LIST
     "src/PhoneHighlight.h"
     "src/PhoneHighlight.cpp"
     "src/UtfUtils.h"
-    "src/UtfUtils.cpp")
+    "src/UtfUtils.cpp"
+    "src/UtfUtilsIcu.h"
+    "src/UtfUtilsIcu.cpp")
 
 add_library(${LIB_NAME} ${SRC_LIST})
 add_library(rms::${LIB_NAME} ALIAS ${LIB_NAME})
@@ -44,7 +47,7 @@ add_sanitizers(${LIB_NAME})
 add_coverage(${LIB_NAME} src)
 target_include_directories(${LIB_NAME} PUBLIC src)
 target_compile_features(${LIB_NAME} PRIVATE cxx_std_14)
-target_link_libraries(${LIB_NAME} PRIVATE boost_range::boost_range boost_algorithm::boost_algorithm boost_locale::boost_locale)
+target_link_libraries(${LIB_NAME} PRIVATE boost_range::boost_range boost_algorithm::boost_algorithm boost_locale::boost_locale icu::icu)
 
 if (BUILD_TESTING)
     find_package(Catch2 REQUIRED)
@@ -52,9 +55,9 @@ if (BUILD_TESTING)
     set(TEST_LIB_NAME "${LIB_NAME}_test")
 
     set(TEST_SRC_LIST
-     "test/PhoneHighlightTest.cpp"
-     "test/UtfUtilsTest.cpp"
-     )
+        "test/PhoneHighlightTest.cpp"
+        "test/UtfUtilsTest.cpp"
+        "test/UtfUtilsIcuTest.cpp")
 
     add_library(${TEST_LIB_NAME} OBJECT ${TEST_SRC_LIST})
     add_library(rms::${TEST_LIB_NAME} ALIAS ${TEST_LIB_NAME})

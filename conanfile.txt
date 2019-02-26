@@ -3,6 +3,12 @@ Catch2/2.6.0@catchorg/stable
 boost_range/1.69.0@bincrafters/stable
 boost_algorithm/1.69.0@bincrafters/stable
 boost_locale/1.69.0@bincrafters/stable
+icu/63.1@bincrafters/stable
+google-benchmark/1.4.1@mpusz/stable
+
+[options]
+icu:with_unit_tests=False
+icu:shared=False
 
 [generators]
 cmake_find_package
