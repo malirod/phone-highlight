@@ -81,6 +81,16 @@ if (BUILD_TESTING)
     add_sanitizers(${TEST_RUNNER_NAME})
 
     add_test(NAME all COMMAND ${TEST_RUNNER_NAME})
+
+    # define benchmark target
+    find_package(google-benchmark REQUIRED)
+    find_package(Threads REQUIRED)
+    set(BENCHMARK_NAME benchmark)
+
+    add_executable(${BENCHMARK_NAME} "benchmark/Benchmark.cpp")
+
+    target_compile_features(${BENCHMARK_NAME} PRIVATE cxx_std_14)
+    target_link_libraries(${BENCHMARK_NAME} PRIVATE rms::${LIB_NAME} google-benchmark::google-benchmark Threads::Threads)
 endif()
 
 include(ClangTidy)
