@@ -3,13 +3,13 @@
 
 #include <catch2/catch.hpp>
 
-TEST_CASE("RangesConverter", "[highlight]")
+TEST_CASE("Ranges converter", "[highlight]")
 {
     REQUIRE(rms::HighlightRangesToString({ std::make_pair(1u, 1u), std::make_pair(5u, 9u) }) == "1-1;5-9");
     REQUIRE(rms::HighlightRangesToString({ std::make_pair(6u, 6u) }) == "6-6");
 }
 
-TEST_CASE("Single simple enty", "[highlight]")
+TEST_CASE("Positive cases", "[highlight]")
 {
     REQUIRE(rms::GetPhoneHighlight("(123) 59 35", "35") == "3-3;6-6;9-10");
     REQUIRE(rms::GetPhoneHighlight("+49 (0) 56 56 5618", "565618") == "11-12;14-17");
