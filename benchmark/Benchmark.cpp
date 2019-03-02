@@ -7,7 +7,15 @@
 
 namespace {
 
-const std::vector<std::string> utf8Sstrings = { "Hello", u8"ℵ", u8"zß水", "\u00A0" };
+const std::vector<std::string> utf8Sstrings = {
+    u8"ℵ",
+    u8"zß水",
+    "\u00A0",
+    "(123) 59 35",
+    "+49 (0) 56 56 5618",
+    "1111111111",
+    "+38\u00A0(0)\u00A097\u00A03545\u00A0123"
+};
 
 const std::vector<std::pair<std::u32string, std::u32string>> highlightInput = {
     { U"(123) 59 35", U"35" },
@@ -28,14 +36,14 @@ static void BM_UTF8ToUTF32(benchmark::State& state)
     for (auto _ : state)
         const auto result = rms::UTF8ToUTF32(utf8Sstrings[state.range(0)]);
 }
-BENCHMARK(BM_UTF8ToUTF32)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Complexity();
+BENCHMARK(BM_UTF8ToUTF32)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Complexity();
 
 static void BM_UTF8ToUTF32ICU(benchmark::State& state)
 {
     for (auto _ : state)
         const auto result = rms::UTF8ToUTF32ICU(utf8Sstrings[state.range(0)]);
 }
-BENCHMARK(BM_UTF8ToUTF32ICU)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Complexity();
+BENCHMARK(BM_UTF8ToUTF32ICU)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Complexity();
 
 static void BM_GetPhoneHighlight(benchmark::State& state)
 {
