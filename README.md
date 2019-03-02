@@ -30,7 +30,7 @@ This will allow to perform some code checks locally before posting changes to se
 
 ### Dependencies
 
-Libs: Boost 1.69
+Libs: Boost 1.69, ICU, Google benchmark, Catch2
 
 Project uses [Conan Package Manager](https://github.com/conan-io/conan)
 
@@ -44,6 +44,7 @@ Add additional repositories to conan:
 
 `conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan`
 `conan remote add catchorg https://api.bintray.com/conan/catchorg/Catch2`
+`conan remote add conan-mpusz https://api.bintray.com/conan/mpusz/conan-mpusz`
 
 Cmake will automatically check required dependencies and setup them taking into account current compiler (clang or gcc).
 
