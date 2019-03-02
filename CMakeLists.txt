@@ -35,6 +35,10 @@ set(LIB_NAME PhoneHighlight)
 set(SRC_LIST
     "src/PhoneHighlight.h"
     "src/PhoneHighlight.cpp"
+    "src/PhoneHighlightUtil.h"
+    "src/PhoneHighlightUtil.cpp"
+    "src/PhoneHighlightAlt.h"
+    "src/PhoneHighlightAlt.cpp"
     "src/UtfUtils.h"
     "src/UtfUtils.cpp"
     "src/UtfUtilsIcu.h"
@@ -56,6 +60,7 @@ if (BUILD_TESTING)
 
     set(TEST_SRC_LIST
         "test/PhoneHighlightTest.cpp"
+        "test/PhoneHighlightAltTest.cpp"
         "test/UtfUtilsTest.cpp"
         "test/UtfUtilsIcuTest.cpp")
 

@@ -1,5 +1,6 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 #include "PhoneHighlight.h"
+#include "PhoneHighlightAlt.h"
 #include "UtfUtils.h"
 #include "UtfUtilsIcu.h"
 
@@ -51,5 +52,12 @@ static void BM_GetPhoneHighlight(benchmark::State& state)
         const auto result = rms::GetPhoneHighlight(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
 }
 BENCHMARK(BM_GetPhoneHighlight)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
+
+static void BM_GetPhoneHighlightAlt(benchmark::State& state)
+{
+    for (auto _ : state)
+        const auto result = rms::GetPhoneHighlightAlt(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
+}
+BENCHMARK(BM_GetPhoneHighlightAlt)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
 
 BENCHMARK_MAIN();

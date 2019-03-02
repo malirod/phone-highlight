@@ -1,18 +1,10 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
+#include "PhoneHighlightUtil.h"
 
 #include <string>
 #include <vector>
 
 namespace rms {
-
-using HighlightRanges = std::vector<std::pair<uint32_t, uint32_t>>;
-/**
- * @brief Converts collection of ranges to formatted string.
- *
- * @param highlightRanges Collection of ranges. Range follows next logic: [begin, end]. Indexes are zero based.
- * @return std::string String in the following format: "begin1-end1;begin2-end2...".
- */
-std::string HighlightRangesToString(HighlightRanges const&);
 
 /**
  * @brief Get the Phone Highlight object. UTF8 version. Indexes are zero based. Range is [begin, end] where begin and end are first
@@ -20,9 +12,9 @@ std::string HighlightRangesToString(HighlightRanges const&);
  *
  * @param phoneNumber Phone number as UTF8 string in which highlights are searched. List of ignored symbols: space, no-break space, "(",")","/", "#", ".". 
  * @param searchString UTF8 encoded search pattern to search.
- * @return std::string formatted string with list of indexes for highlights. Format: "begin1-end1;begin2-end2..."
+ * @return HighlightRanges indexes for highlights. Format: "begin1-end1;begin2-end2..."
  */
-std::string GetPhoneHighlight(std::string const& phoneNumber, std::string const& searchString);
+HighlightRanges GetPhoneHighlight(std::string const& phoneNumber, std::string const& searchString);
 
 /**
  * @brief Get the Phone Highlight object. UTF32 version. Indexes are zero based. Range is [begin, end] where begin and end are first
@@ -30,8 +22,8 @@ std::string GetPhoneHighlight(std::string const& phoneNumber, std::string const&
  *
  * @param phoneNumber Phone number as UTF32 string in which highlights are searched. List of ignored symbols: space, no-break space, "(",")","/", "#", ".". 
  * @param searchString UTF32 encoded search pattern to search.
- * @return std::string formatted string with list of indexes for highlights. Format: "begin1-end1;begin2-end2..."
+ * @return HighlightRanges indexes for highlights. Format: "begin1-end1;begin2-end2..."
  */
-std::string GetPhoneHighlight(std::u32string const& phoneNumber, std::u32string const& searchString);
+HighlightRanges GetPhoneHighlight(std::u32string const& phoneNumber, std::u32string const& searchString);
 
 } // namespace rms

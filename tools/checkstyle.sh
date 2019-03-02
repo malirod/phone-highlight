@@ -115,9 +115,10 @@ echo -e "$TEXT_INFO" "PASSED" "$TEXT_DEFAULT"
 
 echo -e "$TEXT_INFO" "Checking cpp code with style checker" "$TEXT_DEFAULT"
 
+WEBKIT_LINT_FLAGS = -whitespace/braces,-readability/comparison_to_zero
 
 if [ -n "$CPP_FILES" ]; then
-    tools/check-webkit-style/check-webkit-style $CPP_FILES
+    tools/check-webkit-style/check-webkit-style --filter=$WEBKIT_LINT_FLAGS $CPP_FILES
 
     if [ "$?" -ne "0" ]; then
         echo -e "$TEXT_ERROR" "Cpp style checker reports about issues in cpp files" "$TEXT_DEFAULT"
