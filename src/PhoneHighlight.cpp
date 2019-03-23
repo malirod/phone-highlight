@@ -1,15 +1,8 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 #include "PhoneHighlight.h"
 
-#include "UtfUtils.h"
-
 #include <boost/range/adaptors.hpp>
 #include <boost/range/algorithm.hpp>
-
-rms::HighlightRanges rms::GetPhoneHighlight(std::string const& phoneNumber, std::string const& searchString)
-{
-    return GetPhoneHighlight(UTF8ToUTF32(phoneNumber), UTF8ToUTF32(searchString));
-}
 
 rms::HighlightRanges rms::GetPhoneHighlight(std::u32string const& phoneNumber, std::u32string const& searchString)
 {
