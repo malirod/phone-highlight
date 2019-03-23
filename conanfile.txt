@@ -1,5 +1,5 @@
 [requires]
-Catch2/2.6.0@catchorg/stable
+Catch2/2.7.0@catchorg/stable
 boost_range/1.69.0@bincrafters/stable
 boost_algorithm/1.69.0@bincrafters/stable
 boost_locale/1.69.0@bincrafters/stable

@@ -83,13 +83,35 @@ You can enable sanitizers with `SANITIZE_ADDRESS`, `SANITIZE_MEMORY`, `SANITIZE_
 
 ## Run
 
+### Run tests
+
 Run from build directory
 
 `ctest`
 
 or
 
-`bin/testrunner`
+`./testrunner`
+
+Test runner options
+
+1. Show execution duration
+
+`./testrunner -d yes`
+
+2. List tests
+
+`./testrunner -l`
+
+3. [Run specific test](https://github.com/catchorg/Catch2/blob/master/docs/command-line.md#specify-the-section-to-run)
+
+3.1 Run test `./testrunner TestCaseName`
+
+3.2 Run section `./testrunner TestCaseName -c SectionName`
+
+### Run benchmark
+
+`./benchmark`
 
 ## Coverage report
 
