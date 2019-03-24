@@ -11,8 +11,8 @@ namespace rms {
  *
  * @param phoneNumber Phone number as UTF32 string in which highlights are searched. List of ignored symbols: space, no-break space, "(",")","/", "#", ".". 
  * @param searchString UTF32 encoded search pattern to search.
- * @return HighlightRanges indexes for highlights. Format: "begin1-end1;begin2-end2..."
+ * @return std::string formatted string with list of indexes for highlights. Format: "begin1-end1;begin2-end2..."
  */
-HighlightRanges GetPhoneHighlight(std::u32string const& phoneNumber, std::u32string const& searchString);
+HighlightRanges GetPhoneHighlightAlt2(std::u32string const& phoneNumber, std::u32string const& searchString);
 
 } // namespace rms

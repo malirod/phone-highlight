@@ -1,17 +1,17 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
-#include "PhoneHighlight.h"
+#include "PhoneHighlightAlt1.h"
 
 #include <boost/range/adaptors.hpp>
 #include <boost/range/algorithm.hpp>
 
-rms::HighlightRanges rms::GetPhoneHighlight(std::u32string const& phoneNumber, std::u32string const& searchString)
+rms::HighlightRanges rms::GetPhoneHighlightAlt1(std::u32string const& phoneNumber, std::u32string const& searchString)
 {
     using boost::adaptors::filtered;
 
     static std::u32string const ignoredChars = U" ()/#.\u00A0";
 
     auto const IsValidChar = [](char32_t const charToCheck) {
-        return ignoredChars.find_first_of(charToCheck) == std::u32string::npos;
+        return ignoredChars.find(charToCheck) == std::u32string::npos;
     };
 
     HighlightRanges highlightRanges;

@@ -1,5 +1,4 @@
-// Copyright [2019] <Stanislavyk Yaroslav> (stl.ros@outlook.com)
-
+// Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 #include "PhoneHighlightUtil.h"
 
 #include <string>
@@ -14,6 +13,6 @@ namespace rms {
  * @param searchString UTF32 encoded search pattern to search.
  * @return HighlightRanges indexes for highlights. Format: "begin1-end1;begin2-end2..."
  */
-HighlightRanges GetPhoneHighlightYS(std::u32string const& phoneNumber, std::u32string const& searchString);
+HighlightRanges GetPhoneHighlightAlt1(std::u32string const& phoneNumber, std::u32string const& searchString);
 
 } // namespace rms

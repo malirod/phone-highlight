@@ -1,6 +1,5 @@
 // Copyright [2019] <Stanislavyk Yaroslav> (stl.ros@outlook.com)
-
-#include "PhoneHighlightYS.h"
+#include "PhoneHighlightAlt3.h"
 
 #include <cstdint>
 
@@ -60,7 +59,7 @@ bool SymbolMatched(Context const& context, uint32_t const phoneNumberPos)
 
 } // namespace
 
-rms::HighlightRanges rms::GetPhoneHighlightYS(std::u32string const& phoneNumber, std::u32string const& searchString)
+rms::HighlightRanges rms::GetPhoneHighlightAlt3(std::u32string const& phoneNumber, std::u32string const& searchString)
 {
     if (phoneNumber.empty() || searchString.empty())
         return rms::HighlightRanges();

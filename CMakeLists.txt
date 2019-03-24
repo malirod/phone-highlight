@@ -33,14 +33,14 @@ add_compile_options(-Wall -Wextra -pedantic -Werror)
 
 set(LIB_NAME PhoneHighlight)
 set(SRC_LIST
-    "src/PhoneHighlight.h"
-    "src/PhoneHighlight.cpp"
+    "src/PhoneHighlightAlt1.h"
+    "src/PhoneHighlightAlt1.cpp"
     "src/PhoneHighlightUtil.h"
     "src/PhoneHighlightUtil.cpp"
-    "src/PhoneHighlightAlt.h"
-    "src/PhoneHighlightAlt.cpp"
-    "src/PhoneHighlightYS.h"
-    "src/PhoneHighlightYS.cpp"
+    "src/PhoneHighlightAlt2.h"
+    "src/PhoneHighlightAlt2.cpp"
+    "src/PhoneHighlightAlt3.h"
+    "src/PhoneHighlightAlt3.cpp"
     "src/UtfUtils.h"
     "src/UtfUtils.cpp"
     "src/UtfUtilsIcu.h"
@@ -61,9 +61,9 @@ if (BUILD_TESTING)
     set(TEST_LIB_NAME "${LIB_NAME}_test")
 
     set(TEST_SRC_LIST
-        "test/PhoneHighlightTest.cpp"
-        "test/PhoneHighlightAltTest.cpp"
-        "test/PhoneHighlightYSTest.cpp"
+        "test/PhoneHighlightAlt1Test.cpp"
+        "test/PhoneHighlightAlt2Test.cpp"
+        "test/PhoneHighlightAlt3Test.cpp"
         "test/UtfUtilsTest.cpp"
         "test/UtfUtilsIcuTest.cpp")
 
