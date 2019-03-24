@@ -5,6 +5,7 @@ boost_algorithm/1.69.0@bincrafters/stable
 boost_locale/1.69.0@bincrafters/stable
 icu/63.1@bincrafters/stable
 google-benchmark/1.4.1@mpusz/stable
+range-v3/0.4.0@ericniebler/stable
 
 [options]
 icu:with_unit_tests=False

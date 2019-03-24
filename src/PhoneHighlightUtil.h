@@ -4,7 +4,7 @@
 
 namespace rms {
 
-using HighlightRanges = std::vector<std::pair<uint32_t, uint32_t>>;
+using HighlightRanges = std::vector<std::pair<size_t, size_t>>;
 /**
  * @brief Converts collection of ranges to formatted string.
  *
