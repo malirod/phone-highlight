@@ -1,7 +1,7 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
 // Function implementation based on https://github.com/IvanPysmenni/Highlight (Ivan Pysmenni)
 // Implementation has been adjusted to fit used interface with minimal changes in implementation itself.
-#include "PhoneHighlightAlt.h"
+#include "PhoneHighlightAlt2.h"
 
 #include <algorithm>
 #include <vector>
@@ -22,7 +22,7 @@ std::vector<size_t> GetNonIgnoredIndexes(std::u32string const& inputString, std:
 
 } // namespace
 
-rms::HighlightRanges rms::GetPhoneHighlightAlt(std::u32string const& phoneNumber, std::u32string const& searchString)
+rms::HighlightRanges rms::GetPhoneHighlightAlt2(std::u32string const& phoneNumber, std::u32string const& searchString)
 {
     HighlightRanges highlightRanges;
 

@@ -1,7 +1,7 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
-#include "PhoneHighlight.h"
-#include "PhoneHighlightAlt.h"
-#include "PhoneHighlightYS.h"
+#include "PhoneHighlightAlt1.h"
+#include "PhoneHighlightAlt2.h"
+#include "PhoneHighlightAlt3.h"
 #include "UtfUtils.h"
 #include "UtfUtilsIcu.h"
 
@@ -47,25 +47,25 @@ static void BM_UTF8ToUTF32ICU(benchmark::State& state)
 }
 BENCHMARK(BM_UTF8ToUTF32ICU)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Complexity();
 
-static void BM_GetPhoneHighlight(benchmark::State& state)
+static void BM_GetPhoneHighlightAlt1(benchmark::State& state)
 {
     for (auto _ : state)
-        const auto result = rms::GetPhoneHighlight(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
+        const auto result = rms::GetPhoneHighlightAlt1(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
 }
-BENCHMARK(BM_GetPhoneHighlight)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
+BENCHMARK(BM_GetPhoneHighlightAlt1)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
 
-static void BM_GetPhoneHighlightAlt(benchmark::State& state)
+static void BM_GetPhoneHighlightAlt2(benchmark::State& state)
 {
     for (auto _ : state)
-        const auto result = rms::GetPhoneHighlightAlt(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
+        const auto result = rms::GetPhoneHighlightAlt2(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
 }
-BENCHMARK(BM_GetPhoneHighlightAlt)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
+BENCHMARK(BM_GetPhoneHighlightAlt2)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
 
-static void BM_GetPhoneHighlightYS(benchmark::State& state)
+static void BM_GetPhoneHighlightAlt3(benchmark::State& state)
 {
     for (auto _ : state)
-        const auto result = rms::GetPhoneHighlightYS(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
+        const auto result = rms::GetPhoneHighlightAlt3(highlightInput[state.range(0)].first, highlightInput[state.range(0)].second);
 }
-BENCHMARK(BM_GetPhoneHighlightYS)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
+BENCHMARK(BM_GetPhoneHighlightAlt3)->Arg(0)->Arg(1)->Arg(2)->Arg(3)->Arg(4)->Arg(5)->Arg(6)->Arg(7)->Arg(8)->Complexity();
 
 BENCHMARK_MAIN();
