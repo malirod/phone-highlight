@@ -15,7 +15,6 @@ TEST_CASE("UTF8ToUtf32", "[UtfToUtf]")
     SECTION("ASCII")
     {
         std::string utf8Str = "Hello";
-        REQUIRE(utf8Str.length() == 5u);
         auto utf32Str = rms::UTF8ToUTF32(utf8Str);
         REQUIRE(utf32Str.length() == utf8Str.length());
         REQUIRE(utf32Str == U"Hello");
