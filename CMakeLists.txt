@@ -17,6 +17,7 @@ find_package(boost_range REQUIRED)
 find_package(boost_algorithm REQUIRED)
 find_package(boost_locale REQUIRED)
 find_package(icu REQUIRED)
+find_package(range-v3 REQUIRED)
 
 include(CTest)
 
@@ -41,6 +42,8 @@ set(SRC_LIST
     "src/PhoneHighlightAlt2.cpp"
     "src/PhoneHighlightAlt3.h"
     "src/PhoneHighlightAlt3.cpp"
+    "src/PhoneHighlightAlt4.h"
+    "src/PhoneHighlightAlt4.cpp"
     "src/UtfUtils.h"
     "src/UtfUtils.cpp"
     "src/UtfUtilsIcu.h"
@@ -53,7 +56,7 @@ add_sanitizers(${LIB_NAME})
 add_coverage(${LIB_NAME} src)
 target_include_directories(${LIB_NAME} PUBLIC src)
 target_compile_features(${LIB_NAME} PRIVATE cxx_std_14)
-target_link_libraries(${LIB_NAME} PRIVATE boost_range::boost_range boost_algorithm::boost_algorithm boost_locale::boost_locale icu::icu)
+target_link_libraries(${LIB_NAME} PRIVATE boost_range::boost_range boost_algorithm::boost_algorithm boost_locale::boost_locale icu::icu range-v3::range-v3)
 
 if (BUILD_TESTING)
     find_package(Catch2 REQUIRED)
@@ -64,6 +67,7 @@ if (BUILD_TESTING)
         "test/PhoneHighlightAlt1Test.cpp"
         "test/PhoneHighlightAlt2Test.cpp"
         "test/PhoneHighlightAlt3Test.cpp"
+        "test/PhoneHighlightAlt4Test.cpp"
         "test/UtfUtilsTest.cpp"
         "test/UtfUtilsIcuTest.cpp")
 

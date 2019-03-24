@@ -1,13 +1,12 @@
 // Copyright [2019] <Malinovsky Rodion> (rodionmalino@gmail.com)
-#include "PhoneHighlightAlt1.h"
+#include "PhoneHighlightAlt4.h"
 
-#include <boost/range/adaptors.hpp>
-#include <boost/range/algorithm.hpp>
+#include <range/v3/algorithm/search.hpp>
+#include <range/v3/iterator_range.hpp>
+#include <range/v3/view/filter.hpp>
 
-rms::HighlightRanges rms::GetPhoneHighlightAlt1(std::u32string const& phoneNumber, std::u32string const& searchString)
+rms::HighlightRanges rms::GetPhoneHighlightAlt4(std::u32string const& phoneNumber, std::u32string const& searchString)
 {
-    using boost::adaptors::filtered;
-
     static std::u32string const ignoredChars = U" ()/#.\u00A0";
 
     auto const IsValidChar = [](char32_t const charToCheck) {
@@ -19,8 +18,8 @@ rms::HighlightRanges rms::GetPhoneHighlightAlt1(std::u32string const& phoneNumbe
     if (phoneNumber.empty() || searchString.empty())
         return highlightRanges;
 
-    auto filteredRange = boost::make_iterator_range(phoneNumber | filtered(IsValidChar));
-    auto itFoundPattern = boost::range::search(filteredRange, searchString);
+    auto filteredRange = phoneNumber | ranges::v3::view::filter(IsValidChar);
+    auto itFoundPattern = ranges::v3::search(filteredRange, searchString);
     auto const endOfFilteredRange = filteredRange.end();
 
     while (itFoundPattern != endOfFilteredRange) {
@@ -46,9 +45,9 @@ rms::HighlightRanges rms::GetPhoneHighlightAlt1(std::u32string const& phoneNumbe
         highlightRanges.push_back(std::make_pair(tokenBeginIdx, tokenEndIdx));
         // position iterator on the element next after last element in the match range
         ++itFoundPattern;
-        filteredRange = boost::make_iterator_range(itFoundPattern, filteredRange.end());
+        auto const nextFilteredRange = ranges::v3::make_iterator_range(itFoundPattern, filteredRange.end());
 
-        itFoundPattern = boost::range::search(filteredRange, searchString);
+        itFoundPattern = ranges::v3::search(nextFilteredRange, searchString);
     }
     return highlightRanges;
 }
