@@ -5,12 +5,6 @@
 
 #include <catch2/catch.hpp>
 
-TEST_CASE("Ranges converter", "[highlight]")
-{
-    REQUIRE(rms::HighlightRangesToString({ std::make_pair(1u, 1u), std::make_pair(5u, 9u) }) == "1-1;5-9");
-    REQUIRE(rms::HighlightRangesToString({ std::make_pair(6u, 6u) }) == "6-6");
-}
-
 TEST_CASE("Positive cases (Alt1)", "[highlight]")
 {
     REQUIRE(rms::HighlightRangesToString(rms::GetPhoneHighlightAlt1(U"(123) 59 35", U"35")) == "3-3;6-6;9-10");

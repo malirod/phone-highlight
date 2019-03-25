@@ -64,6 +64,7 @@ if (BUILD_TESTING)
     set(TEST_LIB_NAME "${LIB_NAME}_test")
 
     set(TEST_SRC_LIST
+        "test/PhoneHighlightUtilTest.cpp"
         "test/PhoneHighlightAlt1Test.cpp"
         "test/PhoneHighlightAlt2Test.cpp"
         "test/PhoneHighlightAlt3Test.cpp"
