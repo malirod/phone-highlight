@@ -7,6 +7,7 @@
 
 TEST_CASE("Positive cases (Alt4)", "[highlight]")
 {
+    REQUIRE(rms::HighlightRangesToString(rms::GetPhoneHighlightAlt4(U"(124) 59 34", U"35")).empty());
     REQUIRE(rms::HighlightRangesToString(rms::GetPhoneHighlightAlt4(U"(123) 59 35", U"35")) == "3-3;6-6;9-10");
     REQUIRE(rms::HighlightRangesToString(rms::GetPhoneHighlightAlt4(U"+49 (0) 56 56 5618", U"565618")) == "11-12;14-17");
     REQUIRE(rms::HighlightRangesToString(rms::GetPhoneHighlightAlt4(U"1111111111", U"1")) == "0-0;1-1;2-2;3-3;4-4;5-5;6-6;7-7;8-8;9-9");
