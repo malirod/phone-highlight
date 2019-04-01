@@ -8,7 +8,9 @@ E.g. for number "(123) 55 35" and search string "35" result will be "3-3;6-6;9-1
 
 ## Platform
 
-Ubuntu 18.10: Clang 7.0, GCC 8.2, Cmake 3.12, Conan
+Ubuntu 18.10: Clang 7.0, GCC 8.2, CMake 3.12, Conan
+
+macOS 10.14: CMake 3.12, Conan
 
 C++14 Standard is used.
 
@@ -69,6 +71,18 @@ dot graph -T png -o graph.png
 ## Build
 
 ### Build commands
+
+**macOS**
+
+Run in project root to build debug version
+
+`mkdir build-debug && cd build-debug && cmake .. && make -j$(sysctl -n hw.ncpu)`
+
+To build release version run the following command
+
+`mkdir build-release && cd build-release && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j$(sysctl -n hw.ncpu)`
+
+**Linux**
 
 By default used clang compiler and debug mode.
 
